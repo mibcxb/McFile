@@ -1,0 +1,30 @@
+{
+  "name": "mcfile",
+  "version": "0.0.1",
+  "description": "A tool for reading normal and zipped file.",
+  "main": "dist/index.js",
+  "scripts": {
+    "start": "tsc && node dist/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mibcxb/McFile.git"
+  },
+  "keywords": [
+    "File",
+    "Zip"
+  ],
+  "author": "mibcxb",
+  "license": "GPLv3",
+  "bugs": {
+    "url": "https://github.com/mibcxb/McFile/issues"
+  },
+  "homepage": "https://github.com/mibcxb/McFile#readme",
+  "devDependencies": {
+    "tslint": "^6.1.0",
+    "typescript": "^3.8.3",
+    "@types/node": "^13.9.5"
+  },
+  "dependencies": {}
+}
