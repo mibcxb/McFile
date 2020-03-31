@@ -16,15 +16,15 @@
     "Zip"
   ],
   "author": "mibcxb",
-  "license": "GPLv3",
+  "license": "GPL-3.0",
   "bugs": {
     "url": "https://github.com/mibcxb/McFile/issues"
   },
   "homepage": "https://github.com/mibcxb/McFile#readme",
   "devDependencies": {
+    "@types/node": "^13.9.8",
     "tslint": "^6.1.0",
-    "typescript": "^3.8.3",
-    "@types/node": "^13.9.5"
+    "typescript": "^3.8.3"
   },
   "dependencies": {}
 }

@@ -92,10 +92,49 @@ export class McFile {
             });
     }
 
-    private async tryZippedFileStatAsync(): Promise<mfs.McFileStat> {}
+    private async tryZippedFileStatAsync(): Promise<mfs.McFileStat> {
+        return null;
+    }
 
     private async checkReadableAsync(): Promise<void> {
         // tslint:disable-next-line: no-bitwise
         return fs.promises.access(this.filepath, fs.constants.F_OK | fs.constants.R_OK);
     }
+
+    // async function openFileAsync(filepath, flags) {
+    //     return new Promise(function (res, ret) {
+    //         let callback = function (err, fd) {
+    //             if (err)
+    //                 ret(err);
+    //             else
+    //                 res(fd);
+    //         };
+    //         if (flags)
+    //             fs.open(filepath, flags, callback);
+    //         else
+    //             fs.open(filepath, callback);
+    //     });
+    // }
+
+    // async function closeFileAsync(fd) {
+    //     return new Promise(function (res, ret) {
+    //         fs.close(fd, function (err) {
+    //             if (err)
+    //                 ret(err);
+    //             else
+    //                 res(fd);
+    //         });
+    //     });
+    // }
+
+    // async function readDataAsync(fd, buffer, offset, length, position) {
+    //     return new Promise(function (res, ret) {
+    //         fs.read(fd, buffer, offset, length, position, function (err, readLength, readBuffer) {
+    //             if (err)
+    //                 ret(err);
+    //             else
+    //                 res(readLength);
+    //         });
+    //     });
+    // }
 }
