@@ -1,4 +1,4 @@
-export class McFileStat {
+export default class McFileStat {
     readable: boolean;
     isZipped: boolean;
     isSymbolicLink: boolean;

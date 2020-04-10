@@ -1,14 +1,14 @@
 import * as fs from "fs";
 import * as path from "path";
 
-import McTool = require("./McTool");
-import mfs = require("./McFileStat");
+import McTool from "./McTool";
+import McFileStat from "./McFileStat";
 
 export class McFile {
     static CS_ZIP_DELEMITER: string = "#zip/";
 
     private filepath: string;
-    private fileStat: mfs.McFileStat = null;
+    private fileStat: McFileStat = null;
 
     private zipPath: string = null;
     private segment: string = null;
@@ -54,7 +54,7 @@ export class McFile {
         return new McFile(this.getParent());
     }
 
-    readStatAsync(): Promise<mfs.McFileStat> {
+    readStatAsync(): Promise<McFileStat> {
         return this.tryReadFileStatAsync();
     }
     //  readFileAsync(): Promise<string>;
@@ -65,7 +65,7 @@ export class McFile {
     private isZipFile(): boolean {
         return this.extension() === ".zip";
     }
-    private async tryReadFileStatAsync(): Promise<mfs.McFileStat> {
+    private async tryReadFileStatAsync(): Promise<McFileStat> {
         if (this.fileStat == null) {
             if (this.isRealFile()) {
                 this.fileStat = await this.tryNormalFileStatAsync();
@@ -76,12 +76,12 @@ export class McFile {
         return this.fileStat;
     }
 
-    private async tryNormalFileStatAsync(): Promise<mfs.McFileStat> {
+    private async tryNormalFileStatAsync(): Promise<McFileStat> {
         return this.checkReadableAsync()
             .then(() => fs.promises.stat(this.filepath))
-            .then(fstats => {
-                return new Promise(resolve => {
-                    const stat: mfs.McFileStat = new mfs.McFileStat();
+            .then((fstats) => {
+                return new Promise((resolve) => {
+                    const stat: McFileStat = new McFileStat();
                     stat.readable = true;
                     stat.isZipped = false;
                     stat.isSymbolicLink = fstats.isSymbolicLink();
@@ -92,7 +92,7 @@ export class McFile {
             });
     }
 
-    private async tryZippedFileStatAsync(): Promise<mfs.McFileStat> {
+    private async tryZippedFileStatAsync(): Promise<McFileStat> {
         return null;
     }
 
